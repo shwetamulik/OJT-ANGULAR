@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <div class="card border">
+    <div class="card-header"><h2 style="text-align: center ">Update User</h2></div>
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputName">Username</label>
+          <input class="form-control" type="text" formControlName="userName">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.userName.errors?.required">
+            Username is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputName">First Name</label>
+          <input class="form-control" type="text" formControlName="firstName">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.firstName.errors?.required">
+            Firstname is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputName">last Name</label>
+          <input class="form-control" type="text" formControlName="lastName">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.lastName.errors?.required">
+            Lastname is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3">Role</label>
+          <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+            formControlName="role">
+            <option value="">Select Role</option>
+            <option *ngFor="let userProfile of UserProfile" value="{{userProfile}}">{{userProfile}}
+            </option>
+          </select>
+
+          <div class="invalid-feedback" *ngIf="submitted && myForm.role.errors?.required">
+            Choose Role.
+          </div>
+        </div>
+         <div class="form-group">
+          <label for="inputName">Password</label>
+          <input class="form-control" type="password" formControlName="password">
+        </div>
+
+<div class="invalid-feedback" *ngIf="myForm.password.invalid && (myForm.password.touched || myForm.password.dirty)">
+<div *ngIf="myForm.password.hasError('required')">
+  password is required
+</div>
+<div class="error-text" *ngIf="myForm.password.hasError('passwordStrength')">
+ {{myForm.password.errors['passwordStrength']}}
+</div>
+</div>
+
+<!--
+        <div class="form-group">
+        <input type="password" formControlName="password">
+      <div class="errors" *ngIf="form.get('password').invalid && (form.get('password').touched || form.get('password').dirty)">
+      <div *ngIf="form.get('password').hasError('required')">
+        password is required
+      </div>
+      <div class="error-text" *ngIf="form.get('password').hasError('passwordStrength')">
+       {{form.get('password').errors['passwordStrength']}}
+      </div>
+    </div> -->
+
+
+
+
+        <div class="form-group">
+          <label for="inputEmail3">Email</label>
+          <input class="form-control" type="text" formControlName="emailId">
+
+          <div class="invalid-feedback" *ngIf="submitted && myForm.emailId.errors?.required">
+            Enter your email.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.emailId.errors?.pattern">
+            Enter valid email.
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputVerify3">Mobile No</label>
+          <input class="form-control" type="text" formControlName="phoneNumber">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
+            Enter your phone number.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.pattern">
+            Enter Numbers Only
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.minlength">
+          Phone Number mustbe 10 Digits.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.maxlength">
+            Phone Number mustbe 10 Digits.
+            </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

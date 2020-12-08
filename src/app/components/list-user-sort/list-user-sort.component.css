@@ -1,0 +1,82 @@
+  
+            .div-fixed{
+              text-align: center;
+              font-size: 20px;
+          }
+
+          body {
+              background-color: rgb(199, 243, 247);
+               background-attachment:fixed;
+               background-size:cover;
+           }
+           
+          table  {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+          }
+           
+          
+          table.fixed { 
+              
+              table-layout: absolute;
+              height: 100%; 
+          }
+
+          table.fixed td { 
+              overflow: hidden; 
+          } 
+
+          .header {
+              background-color:  #398B93;
+              color: white;
+              font-size: 1.5em;
+              padding: 1rem;
+              text-align: center;
+              text-transform: uppercase;
+              padding-top: 30px;
+              padding-bottom: 30px;
+          }
+           
+          tr:hover {
+              background-color: rgb(181, 228, 231);
+          }
+
+          td:nth-child(1) { 
+              width: 30%; 
+             
+          } 
+
+          td:nth-child(2) { 
+              width: 30%; 
+          } 
+
+          td:nth-child(3) { 
+              width: 22%; 
+          } 
+
+          td:nth-child(4) { 
+            width: 18%; 
+        } 
+
+          .table thead > tr > th {
+             
+              padding-bottom: 0;
+              font-size: 25px;
+              background-color: rgb(181, 228, 231);
+              padding-bottom: 10px;
+              font-weight: 300;
+              color:rgb(19, 54, 56) ;  
+          }
+
+          
+
+          .table tbody > tr > td {
+              font-size: 20px;
+              background-color: white;
+              padding-top: 25px;
+              padding-bottom: 25px; 
+          }
+
+         

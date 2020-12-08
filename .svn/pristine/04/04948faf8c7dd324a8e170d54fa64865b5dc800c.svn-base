@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/logo_g.png" align="left" alt="Home" width="100" height="40">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+        <div class="header-right">
+            <br />
+            <a href="https://www.nttdata.com/global/en/contact-us"> &nbsp;&nbsp; Contact Us </a>
+            <a href="https://www.nttdata.com/global/en/about-us"> &nbsp;&nbsp; About </a>
+            <a href="https://www.nttdata.com/global/en/careers">&nbsp;&nbsp; Careers </a>
+            
+
+          
+
+        </div>
+    </nav>
+
+    <div class="login-form">
+        <form #loginform="ngForm" action="/examples/actions/confirmation.php" method="post" (ngSubmit)="loginUser()">
+            <h5 class="text-center">{{msg}}</h5>
+            <h2 class="text-center"> WinActor </h2>
+            <div class="form-group">
+                <input required type="text" name="username" [(ngModel)]="user.userName" #username="ngModel" id="username" class="form-control" placeholder="Username">
+                <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+                    <div *ngIf="username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input required [(ngModel)]="user.password" name="password"
+                    #password="ngModel" type="password" id="password" class="form-control" name="password" placeholder="Password">
+                <div class="alert alert-danger" *ngIf="password.touched && !password.valid && !password.pattern ">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+              
+            </div>
+               </form> 
+           
+       
+    </div>
+
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Social Footer, Colour Matching Icons -->
+    <!-- Include Font Awesome Stylesheet in Header -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+    <!-- // -->
+    <div class="container">
+
+        <div class="text-center center-block">
+            <p class="txt-railway">
+                <a href="https://www.nttdata.com/global/en/"> - www.NTTData.com - </a>
+            </p>
+            <br />
+            <a href="https://www.facebook.com/NTTDATAServices/">
+                <i id="social-fb" class="fa fa-facebook-square fa-3x social"></i>
+            </a>
+            <a href="https://twitter.com/NTTDATAServices?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                <i id="social-tw" class="fa fa-twitter-square fa-3x social"></i>
+            </a>
+            <a href="https://plus.google.com/+Bootsnipp-page">
+                <i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i>
+            </a>
+            <a href="mailto:bootsnipp@gmail.com">
+                <i id="social-em" class="fa fa-envelope-square fa-3x social"></i>
+            </a>
+
+        </div>
+
+    </div>
+    <br />
+    <!-- Social Footer, Single Coloured -->
+    <!-- Include Font Awesome Stylesheet in Header -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- // -->
+    <div class="container">
+
+
+        <div class="text-center center-block">
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Start -->
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+
+
+
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-1">© Copyright NTT DATA Corporation
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-1">2020 NTT DATA, Inc. All rights reserved.
+        </div>
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

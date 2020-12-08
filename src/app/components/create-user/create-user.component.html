@@ -1,0 +1,114 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h1 class="my-0 mr-md-auto font-weight-normal"><h1>USER-STORY</h1></h1>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/profile">View Profile</a>
+  </nav>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/list-sort">View Users</a>
+  </nav>
+  <nav class="my-2 my-md-0 mr-md-3">
+  <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/list-users">Edit User</a>
+  </nav>
+  <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create-user">Add User</a>
+</div>
+
+<div class="container">
+  <div class="left">
+    <div class="header">
+    <h2 class="animation a1">Registration</h2>
+    <h4 class="animation a2">Add user to winactor</h4>
+   <!--<form [formGroup]="AddUserform">-->
+    <br>
+      <form #AddUserform="ngForm"  >
+      
+        <!--<small [class.text-danger]="msg.status==404">{{msg.message}}</small>-->
+        
+
+        <div class="form-group">
+        <label for="username">User name:</label>
+        <input type="text" class="form-control"  placeholder="Enter user name" name="userName" required [(ngModel)]="user.userName" #userName="ngModel"
+          [class.is-invalid]="userName.invalid && userName.touched">
+        <span *ngIf="userName.errors && (userName.invalid && userName.touched)">
+          <small class="text-danger" *ngIf="userName.errors.required">User name is required</small>
+        </span> <br>
+      </div> 
+      <div class="form-group">
+        <label for="firstname">First name:</label>
+        <input type="txt" class="form-control" placeholder="Enter First name" name="firstname" required [(ngModel)]="user.firstName" #firstName="ngModel"
+        [class.is-invalid]="firstName.invalid && firstName.touched">
+        <span *ngIf="firstName.errors && (firstName.invalid && firstName.touched)">
+          <small class="text-danger" *ngIf="firstName.errors.required">First name is required</small>
+        </span> <br>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last name:</label>
+        <input type="text" class="form-control"  placeholder="Enter Last name" name="last name" required [(ngModel)]="user.lastName" #lastName="ngModel"
+        [class.is-invalid]="lastName.invalid && lastName.touched">
+        <span *ngIf="lastName.errors && (lastName.invalid && lastName.touched)">
+          <small class="text-danger" *ngIf="lastName.errors.required">Last name is required</small>
+        </span><br>
+      </div>
+      <div  class="form-group"  >
+        
+        <label for="password">Password:</label>
+        <input type="password" class="form-control"  placeholder="Enter password" name="password" required pattern="^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$"  [(ngModel)]="user.password"  #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched" >
+        <!-- <div formControlName="password" class="form-control"></div>
+         <small class="text-danger" *ngIf="password.errors.required">password is required</small>-->
+         <span *ngIf="password.errors && (password.invalid && password.touched)">
+
+          <!--<small class="vld vld-danger"  *ngIf=" userval.controls.password.hasError('required')"  >
+            *password is Required! </small>-->
+            <small class="text-danger"  *ngIf="password.errors.required " >
+              Password is required</small>
+              <small class="text-danger" *ngIf="password.errors.pattern" >
+              Should have Min lenght 8 , Alphanumeric , Special character </small>
+        </span><br>  
+        
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control"  placeholder="Enter email" name="email"  [(ngModel)]="user.emailId"  pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,5}$" required #emailId="ngModel"
+        [class.is-invalid]="emailId.invalid && emailId.touched">
+        <span *ngIf="emailId.errors && (emailId.invalid && emailId.touched)">
+         <!--- <small class="text-danger" *ngIf="emailId.errors.required">Email is required</small>
+         <div *ngIf="emailId.errors && (emailId.invalid && emailId.touched">-->
+          <small class="text-danger" *ngIf="emailId.errors.required">Email is required</small>
+           <small class="text-danger" *ngIf="emailId.errors.pattern">Email is not valid</small>
+         
+        </span><br>
+      </div>
+      <div class="form-group">
+        <label for="phonenumber">Mobile number:</label>
+        <input type="number" class="form-control" placeholder="Enter mobile number" name="phonenumber" pattern="^[6-9]\d{9}$" required [(ngModel)]="user.phoneNumber" #phoneNumber="ngModel"
+        [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" >
+        <span *ngIf="phoneNumber.errors && (phoneNumber.invalid && phoneNumber.touched)">
+
+          <small class="text-danger" *ngIf="phoneNumber.errors.required">Number is required</small>
+          <small class="text-danger" *ngIf="phoneNumber.errors.pattern">Number is not valid</small>
+        </span><br>
+      </div>
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <select class="form-control" name="role" required [(ngModel)]="user.role" #role="ngModel">
+            
+            <option value="Tenant Admin">Tenant Admin </option>
+
+        </select>
+      </div>
+      
+      <!--<button [disabled]="AddUserform.form.invalid"type="submit" class="btn btn-default" >Submit</button>
+      <small [class.text-danger]="msg.status==400">{{msg.message}}</small>-->
+      
+      <span class="text-danger">{{msg}}</span> 
+
+      <br><br>
+       <button class="button" type="submit" (click)='addUser()'>Submit</button>
+    
+    </form>
+    </div>
+    </div>
+    <div class="right"></div>
+  </div>
+  <router-outlet></router-outlet>
